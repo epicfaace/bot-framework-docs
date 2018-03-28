@@ -19,9 +19,6 @@ This article uses the example of a bot for taking notes, to demonstrate how Lang
 
 ![image](https://user-images.githubusercontent.com/1689183/38056201-dbbcca90-32a9-11e8-92a7-9aa7a4caed65.png)
 
-
-    * Check the box to confirm to the terms of service.
-
 4. Confirm that the bot service has been deployed.
     * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
     * After the notification changes to **Deployment succeeded**, click **Go to resource** on that notification.
