@@ -17,7 +17,8 @@ This article uses the example of a bot for taking notes, to demonstrate how Lang
     * Select the subscription, [resource group](/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/en-us/regions/).
     * Select the **Language understanding (Node.js)** template for the **Bot template** field.
 
-    ![Bot Service blade](../media/bot-builder-nodejs-use-luis/bot-service-setting-callout-template.png)
+![image](https://user-images.githubusercontent.com/1689183/38056201-dbbcca90-32a9-11e8-92a7-9aa7a4caed65.png)
+
 
     * Check the box to confirm to the terms of service.
 
