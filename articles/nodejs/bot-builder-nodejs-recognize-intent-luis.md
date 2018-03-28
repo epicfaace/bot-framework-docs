@@ -4,7 +4,7 @@ This article uses the example of a bot for taking notes, to demonstrate how Lang
 
 ## Create a Language Understanding bot with Bot Service
 
-1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**.
+1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**. (If you don't already have an Azure account, please go to http://imagine.microsoft.com/ and sign up with your student email. This gives you $100 of free credit to begin using the account.)
 
     ![Create new resource](../media/bot-builder-nodejs-use-luis/bot-service-creation.png)
 
