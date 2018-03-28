@@ -645,7 +645,7 @@ Open your bot in the Azure Portal and click Channels blade.
 
 To embed your bot in your website by specifying the secret within the iframe tag:
 
-1. Copy the iframe Embed code from the Web Chat channel within the Bot Framework Portal (as described in Step 1 above).
+1. Copy the iframe Embed code from the Web Chat channel within the Bot Framework Portal (as described in the steps above).
 
 1. Within that Embed code, replace "YOUR_SECRET_HERE" with the Secret key value that you copied from the same page.
 
@@ -654,6 +654,8 @@ To embed your bot in your website by specifying the secret within the iframe tag
 ```
 
 1. You can now add the above HTML code to any website (such as your personal website) to embed the bot. You can also just go to the URL `https://webchat.botframework.com/embed/YOUR_BOT_ID?s=YOUR_SECRET_HERE` in your web browser to interact with your bot -- share this link with others so they can use your bot as well!
+
+Here's a finished example: **https://webchat.botframework.com/embed/arvind-note-bot?s=uvrjVpZN9OI.cwA.qNg.bKim9V6FrD-I1d3fz1b2WIjfhTiTtCFSD819e-QBvfM**
 
 ### Integrating your bot with Facebook, Slack, Skype, email, and more
 Each platform requires a specific setup and registration with developer accounts. Read this tutorial for more information about how to integrate your bot with other platforms: **https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-slack**
