@@ -35,14 +35,14 @@ The bot responds by saying "You have reached Greeting. You said: hello". This co
 
 ## Modify the LUIS app
 
-Log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. Click on **My apps**. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. 
+Log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. Scroll all the way down and click on **Create LUIS app** to get started. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. 
 
-The LUIS app starts with 4 intents: Cancel: Greeting, Help, and None; and a fifth, custom intent you will add later! <!-- picture -->
+The LUIS app starts with 4 intents: Cancel, Greeting, Help, and None; and a fifth, custom intent you will add later! <!-- picture -->
 
 ### Add predefined intents
 The following steps add the Note.Create, Note.ReadAloud, and Note.Delete intents: 
 
-1. Click on **Prebuit Domains** in the lower left of the page. Find the **Note** domain and click **Add domain**.
+1. Click on **Prebuilt Domains** in the lower left of the page. Find the **Note** domain and click **Add domain**.
 
 2. This tutorial doesn't use all of the intents included in the **Note** prebuilt domain. In the **Intents** page, click on each of the following intent names and then click the **Delete Intent** button.
    * Note.ShowNext
@@ -186,7 +186,7 @@ bot.dialog('CancelDialog',
 
 
 ## Handle the None intent
-The [matches][intentDialog_matches] methods on the [IntentDialog][intentDialog] invokes a handler when the specified intent is detected in the user utterance. To add a handler for the `None` intent, copy the following code and paste it after the `.matches` handler for the Cancel intent, before `onDefault`.
+The [matches][intentDialog_matches] methods on the [IntentDialog][intentDialog] invokes a handler when the specified intent is detected in the user utterance. To add a handler for the `None` intent, copy the following code and paste it at the end of the file.
 ```javascript
 bot.dialog('NoneDialog',
     (session) => {
@@ -205,7 +205,7 @@ bot.dialog('NoneDialog',
 
 ## Handle the Note.Create intent
 
-Copy the following code and paste it after the handler for None that you just pasted, before `onDefault`:
+Copy the following code and paste it after the handler for None that you just pasted:
 ```javascript
 bot.dialog('NoteCreateDialog', [(session, args, next) => {
         // Resolve and store any Note.Title entity passed from LUIS.
@@ -268,7 +268,7 @@ Just as for the `Note.Create` intent, the bot examines the `args` parameter for 
 
 
 
-Copy the following code and paste it after the handler for `Note.Create` that you just pasted, before `onDefault`:
+Copy the following code and paste it after the handler for `Note.Create` that you just pasted:
 ```javascript
 bot.dialog('NoteDeleteDialog', [(session, args, next) => {
         if (noteCount(session.userData.notes) > 0) {
@@ -302,7 +302,7 @@ bot.dialog('NoteDeleteDialog', [(session, args, next) => {
 
 ## Handle the Note.ReadAloud intent
 
-Copy the following code and paste it after the handler for `Note.Create` that you just pasted, before `onDefault`:
+Copy the following code and paste it after the handler for `Note.Create` that you just pasted:
 
 ```javascript
 bot.dialog('NoteReadAloudDialog', [(session, args, next) => {
