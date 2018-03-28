@@ -571,6 +571,9 @@ In the Azure Portal, click on **Test in Web Chat** to test the bot. Try type mes
 > [!TIP]
 > If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](/azure/cognitive-services/LUIS/train-test).
 
+## Deploy your bot to a website, Skype, Slack, Facebook, etc.
+Learn how to deploy your bot to webchat at this link: *[https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)*
+
 
 ## Next steps
 
