@@ -52,6 +52,7 @@ Log in to [https://www.luis.ai](https://www.luis.ai) using the same account you 
 
 The LUIS app starts with 4 intents: Cancel: Greeting, Help, and None. <!-- picture -->
 
+### Add predefined intents
 The following steps add the Note.Create, Note.ReadAloud, and Note.Delete intents: 
 
 1. Click on **Prebuit Domains** in the lower left of the page. Find the **Note** domain and click **Add domain**.
@@ -74,13 +75,33 @@ The following steps add the Note.Create, Note.ReadAloud, and Note.Delete intents
    * Cancel 
 
     ![intents shown in LUIS app](../media/bot-builder-nodejs-use-luis/luis-intent-list.png)
+### Add your own custom intent
+Time to add your own custom intent! Click on "Create new intent" to create a new intent.
 
-3.	Click the **Train** button in the upper right to train your app.
-4.	Click **PUBLISH** in the top navigation bar to open the **Publish** page. Click the **Publish to production slot** button. After successful publish, copy the URL displayed in the **Endpoint** column the **Publish App** page, in the row that starts with the Resource Name Starter_Key. Save this URL to use later in your bot’s code. The URL has a format similar to this example: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?subscription-key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&timezoneOffset=0&verbose=true&q=`
+In this example, we are creating a new intent which lets the bot know if you want to drop out of school.
+
+1. Click on "Create intent" and type "Dropout" as the intent name.
+![image](https://user-images.githubusercontent.com/1689183/38036918-ce6cddfa-3275-11e8-8f31-dba7872cdf94.png)
+
+1. Enter several examples of what the user may say in order for the bot to recognize the "Dropout" intent.
+![image](https://user-images.githubusercontent.com/1689183/38037164-3fcf5bd0-3276-11e8-8571-de2ec7432d17.png)
+
+After you've typed a few phrases, the screen should look like this:
+
+![image](https://user-images.githubusercontent.com/1689183/38037106-27089a44-3276-11e8-9043-7690e5cfea17.png)
+
+1. Finally, click on the "Train" button on the top right to train your bot. Then click on the "Test" button to test your intent. Type in a few phrases that have the same meaning as dropping out of school and see what the bot classifies it as. You can also try phrases such as "create a note" to see what intents it classifies your phrases as. You can see that the bot has varying levels of success with classifying intents; this may improve with better training data.
+
+![image](https://user-images.githubusercontent.com/1689183/38037287-8e618fe8-3276-11e8-9a10-3bacd51b6d9a.png)
+
+### Train and publish
+Run the following steps; you will need to run these whenever you change your intents and configured phrases.
+1.	Click the **Train** button in the upper right to train your app.
+1.	Click **PUBLISH** in the top navigation bar to open the **Publish** page. Click the **Publish to production slot** button. And you're done!
 
 ## Modify the bot code
 
-Click **Build** and then click **Open online code editor**.
+Back in the Azure portal, click **Build** and then click **Open online code editor**.
 
    ![Open online code editor](../media/bot-builder-nodejs-use-luis/bot-service-build.png)
 
@@ -292,20 +313,6 @@ bot.dialog('NoteDeleteDialog', [(session, args, next) => {
 });
 ```
 
-The code that handles `Note.Delete` uses the `noteCount` function to determine whether the `notes` object contains notes. 
-
-Paste the `noteCount` helper function at the end of `app.js`:
-```javascript
-function noteCount(notes) {
-
-    var i = 0;
-    for (var name in notes) {
-        i++;
-    }
-    return i;
-}
-```
-
 ## Handle the Note.ReadAloud intent
 
 Copy the following code and paste it after the handler for `Note.Create` that you just pasted, before `onDefault`:
@@ -338,6 +345,43 @@ bot.dialog('NoteReadAloudDialog', [(session, args, next) => {
     }]
 ).triggerAction({
     matches: 'Note.ReadAloud'
+});
+```
+
+## Add the `noteCount` helper function
+
+The code that handles `Note.Delete` uses the `noteCount` function to determine whether the `notes` object contains notes. 
+
+Paste the `noteCount` helper function at the end of `app.js`:
+```javascript
+function noteCount(notes) {
+
+    var i = 0;
+    for (var name in notes) {
+        i++;
+    }
+    return i;
+}
+```
+
+## Handle your custom dropout intent
+Now it's time to handle your custom dropout intent! Note that ```session.endDialog``` gives the bot's response. The following code is an example of some code that helps pick a random response, once the bot understands that the user wants to drop out. Feel free to tweak this code or make it more complex!
+```
+bot.dialog('DropoutDialog', (session) => {
+        var possibleResponses = [
+          "Oh no! Don't drop out of school, it's worth it!",
+          "Dropping out of school is a terrible decision.",
+          "Don't worry! I'll support you!",
+          "If Bill Gates dropped out of school, you can too!"
+        ];
+        var response = possibleResponses[Math.floor(Math.random() * possibleResponses.length)];
+        if (noteCount(session.userData.notes) > 0) {
+            response += " You even have " + noteCount(session.userData.notes) + "notes!";
+        }
+        session.endDialog(response);
+    }
+).triggerAction({
+    matches: 'Dropout'
 });
 ```
 
@@ -561,12 +605,34 @@ function noteCount(notes) {
     }
     return i;
 }
+
+bot.dialog('DropoutDialog', (session) => {
+        var possibleResponses = [
+          "Oh no! Don't drop out of school, it's worth it!",
+          "Dropping out of school is a terrible decision.",
+          "Don't worry! I'll support you!",
+          "If Bill Gates dropped out of school, you can too!"
+        ];
+        var response = possibleResponses[Math.floor(Math.random() * possibleResponses.length)];
+        if (noteCount(session.userData.notes) > 0) {
+            response += " You even have " + noteCount(session.userData.notes) + "notes!";
+        }
+        session.endDialog(response);
+    }
+).triggerAction({
+    matches: 'Dropout'
+});
+
 ```
 
 ## Test the bot
 
 In the Azure Portal, click on **Test in Web Chat** to test the bot. Try type messages like "Create a note", "read my notes", and "delete notes" to invoke the intents that you added to it.
    ![Test notes bot in Web Chat](../media/bot-builder-nodejs-use-luis/bot-service-test-notebot.png)
+
+And, you can also try your custom intent that you had created before:
+
+![image](https://user-images.githubusercontent.com/1689183/38038133-58631fe0-3278-11e8-83b5-67c2e10ae20f.png)
 
 > [!TIP]
 > If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](/azure/cognitive-services/LUIS/train-test).
