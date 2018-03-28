@@ -637,8 +637,41 @@ And, you can also try your custom intent that you had created before:
 > [!TIP]
 > If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](/azure/cognitive-services/LUIS/train-test).
 
-## Deploy your bot to a website, Skype, Slack, Facebook, etc.
-Learn how to deploy your bot to webchat at this link: *[https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)*
+## Share and deploy your bot!
+### Deploy by web channels
+
+Get your bot secret key
+Open your bot in the Azure Portal and click Channels blade.
+
+1. Click Edit for the Web Chat channel.
+![image](https://user-images.githubusercontent.com/1689183/38038698-932e53fa-3279-11e8-8d5f-546022598337.png)
+
+1. Under Secret keys, click Show for the first key.
+![image](https://user-images.githubusercontent.com/1689183/38038702-973e0bca-3279-11e8-9b60-cbf70f207e3a.png)
+
+
+1. Copy the Secret key and the Embed code.
+
+1. Click Done.
+
+### Embed your bot in a website
+
+To embed your bot in your website by specifying the secret within the iframe tag:
+
+1. Copy the iframe Embed code from the Web Chat channel within the Bot Framework Portal (as described in Step 1 above).
+
+1. Within that Embed code, replace "YOUR_SECRET_HERE" with the Secret key value that you copied from the same page.
+
+```
+<iframe src="https://webchat.botframework.com/embed/YOUR_BOT_ID?s=YOUR_SECRET_HERE"></iframe>
+```
+
+1. You can now add the above HTML code to any website (such as your personal website) to embed the bot. You can also just go to the URL `https://webchat.botframework.com/embed/YOUR_BOT_ID?s=YOUR_SECRET_HERE` in your web browser to interact with your bot -- share this link with others so they can use your bot as well!
+
+### Integrating your bot with Facebook, Slack, Skype, email, and more
+Each platform requires a specific setup and registration with developer accounts. Read this tutorial for more information about how to integrate your bot with other platforms: **https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-slack**
+
+Note: as of now, Facebook is not allowing new Messenger bots to be created while they update their policies.
 
 
 ## Next steps
