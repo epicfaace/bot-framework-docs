@@ -37,7 +37,7 @@ The bot responds by saying "You have reached Greeting. You said: hello". This co
 
 Log in to [https://www.luis.ai](https://www.luis.ai) using the same account you use to log in to Azure. Click on **My apps**. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. 
 
-The LUIS app starts with 4 intents: Cancel: Greeting, Help, and None. <!-- picture -->
+The LUIS app starts with 4 intents: Cancel: Greeting, Help, and None; and a fifth, custom intent you will add later! <!-- picture -->
 
 ### Add predefined intents
 The following steps add the Note.Create, Note.ReadAloud, and Note.Delete intents: 
