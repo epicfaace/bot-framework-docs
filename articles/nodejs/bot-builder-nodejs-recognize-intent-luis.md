@@ -1,14 +1,3 @@
----
-title: Recognize intents and entities with LUIS  | Microsoft Docs
-description: Integrate a bot with LUIS to detect the user's intent and respond appropriately by triggering dialogs using the Bot Builder SDK for Node.js. 
-author: DeniseMak
-ms.author: v-demak
-manager: kamrani
-ms.topic: article
-ms.prod: bot-framework
-ms.date: 12/13/2017
----
-
 # Recognize intents and entities with LUIS 
 
 This article uses the example of a bot for taking notes, to demonstrate how Language Understanding ([LUIS][LUIS]) helps your bot respond appropriately to natural language input. A bot detects what a user wants to do by identifying their **intent**. This intent is determined from spoken or textual input, or **utterances**. The intent maps utterances to actions that the bot takes, such as invoking a dialog. A bot may also need to extract **entities**, which are important words in utterances. Sometimes entities are required to fulfill an intent. In the example of a note-taking bot, the `Notes.Title` entity identifies the title of each note.
