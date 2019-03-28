@@ -6,13 +6,13 @@ This article uses the example of a bot for taking notes, to demonstrate how Lang
 
 ## Create a Language Understanding bot with Bot Service
 
-1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**. (If you don't already have an Azure account, please go to http://imagine.microsoft.com/ and sign up with your student email. This gives you $100 of free credit to begin using the account.)
+1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**. (If you don't already have an Azure account, please go to https://azure.microsoft.com/en-us/free/students/ and sign up with your student email. This gives you $100 of free credit to begin using the account.)
 
-    ![Create new resource](../media/bot-builder-nodejs-use-luis/bot-service-creation.png)
+    ![Create new resource](https://user-images.githubusercontent.com/1689183/55122467-80c28a80-50d5-11e9-98e4-498918e4c52c.png)
 
 2. In the search box, search for **Web App Bot**. 
 
-    ![Create new resource](../media/bot-builder-nodejs-use-luis/bot-service-selection.png)
+    ![Create new resource](https://user-images.githubusercontent.com/1689183/55122487-8e781000-50d5-11e9-800a-f537578bdb04.png)
 
 3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot.
@@ -31,7 +31,7 @@ Confirm that the bot has been deployed by checking the **Notifications**. The no
 
 Once the bot is registered, click **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
 
-  ![Test the bot in Web Chat](../media/bot-builder-nodejs-use-luis/bot-service-web-chat.png)
+  ![Test the bot in Web Chat](https://user-images.githubusercontent.com/1689183/55122816-ad2ad680-50d6-11e9-9b70-b075f55067dc.png)
 
 The bot responds by saying "You have reached Greeting. You said: hello". This confirms that the bot has received your message and passed it to a default LUIS app that it created. This default LUIS app detected a Greeting intent.
 
@@ -63,7 +63,7 @@ The following steps add the Note.Create, Note.ReadAloud, and Note.Delete intents
    * Greeting
    * Cancel 
 
-    ![intents shown in LUIS app](../media/bot-builder-nodejs-use-luis/luis-intent-list.png)
+    ![intents shown in LUIS app](https://user-images.githubusercontent.com/1689183/55122835-be73e300-50d6-11e9-844e-9fc7f301a73e.png)
 ### Add your own custom intent
 Time to add your own custom intent! Click on "Create new intent" to create a new intent.
 
@@ -92,7 +92,7 @@ Run the following steps; you will need to run these whenever you change your int
 
 Back in the Azure portal, click **Build** and then click **Open online code editor**.
 
-   ![Open online code editor](../media/bot-builder-nodejs-use-luis/bot-service-build.png)
+   ![Open online code editor](https://user-images.githubusercontent.com/1689183/55122846-c9c70e80-50d6-11e9-82e2-ae4c7afaf26f.png)
 
 In the code editor, open `app.js`. It contains the following code:
 
@@ -617,7 +617,7 @@ bot.dialog('DropoutDialog', (session) => {
 ## Test the bot
 
 In the Azure Portal, click on **Test in Web Chat** to test the bot. Try type messages like "Create a note", "read my notes", and "delete notes" to invoke the intents that you added to it.
-   ![Test notes bot in Web Chat](../media/bot-builder-nodejs-use-luis/bot-service-test-notebot.png)
+   ![Test notes bot in Web Chat](https://user-images.githubusercontent.com/1689183/55122862-d8adc100-50d6-11e9-96c3-88c053ba62a2.png)
 
 And, you can also try your custom intent that you had created before:
 
